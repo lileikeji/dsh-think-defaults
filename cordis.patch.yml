@@ -1,0 +1,19 @@
+- insert:
+    - id: dsh-think-defaults
+      name: dsh-think-defaults
+      inject: [settings, webServer]
+      config:
+        # 自动为缺思考等级字段的模型补默认值（幂等，只补缺的）
+        # 关闭：enabled: false
+        enabled: true
+        # 默认补入的 reasoningEfforts 档位（off=关闭思考 / high / max）
+        defaultReasoningEfforts:
+          off: null
+          high: high
+          max: max
+        # 默认补入的 compat（网关不认 reasoning_effort 时置 false，避免 400/工具全红）
+        defaultCompat:
+          thinkingFormat: deepseek
+          supportsReasoningEffort: false
+        # 默认补入的单次最大输出
+        defaultMaxTokens: 384000
